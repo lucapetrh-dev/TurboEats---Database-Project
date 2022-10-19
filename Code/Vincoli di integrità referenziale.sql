@@ -1,0 +1,12 @@
+alter table carte                 add constraint fk_carte_to_cl      foreign key (c_cliente) references clienti (id_cliente)                  on delete cascade;
+alter table telefoni_fornitori    add constraint fk_tel_forn_to_forn foreign key (tel_fornitore) references fornitori (nome_fornitore)        on delete cascade;
+alter table riders 				  add constraint fk_rid_to_trag      foreign key (tragitto) references tragitti (id_tragitto)                 on delete cascade;
+alter table riders                add constraint fk_rid_to_forn      foreign key (rd_fornitore)   references fornitori (nome_fornitore)       on delete cascade;
+alter table feedbacks             add constraint fk_fed_to_cl        foreign key (fb_cliente) references clienti (id_cliente)                 on delete cascade;
+alter table ordinazioni           add constraint fk_ord_to_cl        foreign key (o_cliente) references clienti  (id_cliente) 			      on delete cascade;
+alter table ordinazioni           add constraint fk_ord_to_prod      foreign key (o_fornitore) references fornitori (nome_fornitore) 		  on delete cascade;
+alter table menù                  add constraint fk_menù_to_forn     foreign key (m_fornitore) references fornitori (nome_fornitore) 		  on delete cascade;
+alter table menù                  add constraint fk_menù_to_prod     foreign key (m_prodotto) references prodotti   (id_prodotto) 		      on delete cascade;  
+alter table ricevimento           add constraint fk_ric_to_cl        foreign key (ric_cliente) references clienti (id_cliente) 			      on delete cascade;
+alter table ricevimento           add constraint fk_ric_to_rid       foreign key (ric_rider) references riders 	(id_rider) 			          on delete cascade;
+alter table ricevimento           add constraint fk_ric_to_forn      foreign key (ric_fornitore) references fornitori (nome_fornitore)        on delete cascade;
